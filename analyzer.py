@@ -233,7 +233,7 @@ if __name__ == '__main__':
     #Calculating polynomial relations
     print("Computing polynomial relations")
     nlog_flag = "-nlog" if args.nlog else ""
-    cmd = "{}/dig.py -trace {}/traces -maxdeg {} -r {}".format(settings.path_to_src, dir_name, settings.maxdeg, nlog_flag)
+    cmd = "{}/polynomial.py -trace {}/traces -maxdeg {} -r {}".format(settings.path_to_src, dir_name, settings.maxdeg, nlog_flag)
     print("Command: ", cmd)
     out, err = vcmd(cmd)
     #assert not err, "Failed:\n{}".format(err)
