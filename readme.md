@@ -60,9 +60,9 @@ To compute the complexity from collected traces we use the following command:
 # Analysis results 
 **Command**: path/to/analyzer.py -trace path/to/bubblesort
 **results**
-recurrence: T(n) = T(n-1) + f(n)
-polynomial relation: f(n) = n^1
-reccurence relation: T(n) = T(n-1) + n
+recurrence: T(n) = T(n-1) + f(n) <br>
+polynomial relation: f(n) = n^1 <br>
+reccurence relation: T(n) = T(n-1) + n <br>
 complexity: O(n)
 ## Note: 
 The code instrumentation does not need to follow the same guidelines shown in the example. For example, check the recursive_programs/cpp folder for more effective code instrumentation. The traces do need to follow the same guidelines. For recursive traces in files named output-\<size\> there should be depth;size to indicate depth of recursion and size of the problem at that depth. For iteration traces in file named traces there should be size;counter to indicate the size of the problem and the number of iteration one recursive step takes. 
