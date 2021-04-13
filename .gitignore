@@ -1,0 +1,16 @@
+.idea
+.gradle
+gradle
+gradlew
+gradlew.bat
+build/
+
+# OCaml 
+*.cmi
+*.cmx
+*.o
+.exe
+test
+*logs/
+
+__pycache__/
