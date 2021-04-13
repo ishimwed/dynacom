@@ -14,3 +14,6 @@ test
 *logs/
 
 __pycache__/
+
+recursive_programs/cpp/traces
+recursive_programs/cpp/traces_permutation_gen
