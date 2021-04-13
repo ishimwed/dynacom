@@ -12,22 +12,32 @@ def random_list(size):
         list.append(random.randint(0, 200))
     return list
 
-def isSubsetSum(set, n, sum, depth, file) : 
-    
+def subsetSumSize(A, n, depth, file):
+    if depth==0:
+        global counter
+        counter = counter + 1
+    global found
+    found = False
+    return subsetSumSizeAux(A,0,n,0, depth, file)
+
+def subsetSumSizeAux(A, i, n, sum, depth, file):
     if depth==0:
         global counter
         counter = counter + 1
     with open(file, 'a') as f:
-        print("{};{}".format(depth, n), file=f)
+        print("{};{}".format(depth, i), file=f)
 
-    # Base Cases 
-    if (sum == 0) : 
-        return True
-    if (n == 0 and sum != 0) : 
-        return False
-   
-    return isSubsetSum(set, n-1, sum, depth+1, file) or isSubsetSum(set, n-1, sum-set[n-1], depth+1, file)
+    if (i >= n):
+        if (sum == 0):
+            global found
+            found = True
+        return 0
 
+    size = subsetSumSizeAux(A,i+1,n,sum + A[i], depth+1, file)
+    if (found):
+        return size + 1
+    size = subsetSumSizeAux(A,i+1,n,sum, depth+1, file)
+    return size
 
 def main():
     global counter
@@ -43,7 +53,7 @@ def main():
     except OSError as error:
         pass
     file = "./subset_sum/output-{}".format(size)
-    isSubsetSum(arr, size, sum, depth, file)
+    subsetSumSize(arr, size, depth, file)
     with open("./subset_sum/traces", 'a') as f:
         print("{};{}".format(size, counter), file=f)
     counter = 0
@@ -51,4 +61,3 @@ def main():
 if __name__ == '__main__':
     for i in range(20):
         main()
-
